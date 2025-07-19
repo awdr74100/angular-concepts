@@ -3,10 +3,14 @@
 <main>
   <h1>{{ title() }}</h1>
   <p>{{ message }}</p>
-  <input type="text" (keyup)="keyUpHandler($event)">
+  <input type="text" (keyup)="keyUpHandler($event)" />
   <app-header />
   <app-button [text]="buttonText()" />
   <app-counter />
-  <hr>
+  <hr />
+  <svg-icon name="user" />
+  <!-- <inline-svg  /> -->
+  <!-- <svg-icon ke="user" /> -->
+  <!-- <div class="my-icon" aria-label="My icon" [inlineSVG]="'/assets/icons/user.svg'"></div> -->
   <router-outlet />
 </main>
