@@ -1,0 +1,23 @@
+<button (click)="userId.set(1)">id: 1</button>
+<button (click)="userId.set(2)">id: 2</button>
+<button (click)="userId.set(3)">id: 3</button>
+
+<button (click)="createUser({ name: 'Eric' })">建立 User</button>
+
+@if (usersQuery.isLoading()) {
+  <div>Loading...</div>
+} @else {
+  <ul>
+    @for (user of usersQuery.data(); track user.id) {
+      <li>{{ user.name }}</li>
+    }
+  </ul>
+}
+
+<hr />
+
+@if (userQuery.isLoading()) {
+  <div>Loading...</div>
+} @else {
+  <div>{{ userQuery.data()?.name }}</div>
+}

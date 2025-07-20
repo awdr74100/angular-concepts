@@ -4,7 +4,9 @@ import { Todo } from '../../model/todo.type';
 import { catchError } from 'rxjs';
 import { TodoItem } from '../../shared/components/todo-item/todo-item';
 import { FormsModule } from '@angular/forms';
-import { FilterTodosPipe } from '../../pipes/filter-todos-pipe';
+import { FilterTodosPipe } from '@/app/pipes/filter-todos-pipe';
+
+// import { FilterTodosPipe } from '../../pipes/filter-todos-pipe';
 // import { NgIf } from '@angular/common';
 
 @Component({

@@ -1,4 +1,5 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { Button } from './shared/components/button/button';
 import { Header } from './shared/components/header/header';
@@ -9,10 +10,11 @@ import { environment } from '../environments/environment';
 // import { SvgIconComponent } from '@ngneat/svg-icon';
 // import { SvgIconComponent } from "../../node_modules/.pnpm/angular-svg-icon@19.1.1_@an_0e1c5c0e16b69a6a074482848888bcc1/node_modules/angular-svg-icon/lib/svg-icon.component";
 import { SvgIconComponent, SvgIconRegistryService } from 'angular-svg-icon';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Button, Header, Counter, SvgIconComponent],
+  imports: [RouterOutlet, Button, Header, Counter, SvgIconComponent, NgOptimizedImage],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
@@ -21,6 +23,7 @@ export class App implements OnInit {
   message = 'Hello World';
   buttonText = signal('Cancel');
   iconReg = inject(SvgIconRegistryService);
+  cookieService = inject(CookieService);
 
   constructor() {
     this.iconReg.loadSvg('/icons/user.svg', 'user')?.subscribe();
@@ -32,5 +35,13 @@ export class App implements OnInit {
 
   ngOnInit(): void {
     console.log(environment.apiUrl);
+  }
+
+  login() {
+    this.cookieService.set('token', 'ccss');
+  }
+
+  logout() {
+    this.cookieService.delete('token');
   }
 }

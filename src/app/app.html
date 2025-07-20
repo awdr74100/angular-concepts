@@ -1,6 +1,8 @@
 <app-header />
 
 <main>
+  <button (click)="login()">Login</button>
+  <button (click)="logout()">Logout</button>
   <h1>{{ title() }}</h1>
   <p>{{ message }}</p>
   <input type="text" (keyup)="keyUpHandler($event)" />
@@ -8,6 +10,17 @@
   <app-button [text]="buttonText()" />
   <app-counter />
   <hr />
+
+  <div>
+    <img
+      ngSrc="/cat.jpg"
+      alt="Logo"
+      width="747"
+      height="448"
+      priority
+      style="width: 100%; height: auto"
+    />
+  </div>
   <svg-icon name="user" />
   <!-- <inline-svg  /> -->
   <!-- <svg-icon ke="user" /> -->
