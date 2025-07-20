@@ -1,6 +1,16 @@
 <!-- <pre>{{ todoItems().at(0)?.title }}</pre> -->
 <!-- <p *ngIf="!todoItems().length">Loading...</p> -->
 
+@if (usersQuery.isLoading()) {
+  <div>Loading...</div>
+} @else {
+  <ul>
+    @for (user of usersQuery.data(); track user.id) {
+      <li>{{ user.name }}</li>
+    }
+  </ul>
+}
+
 <form>
   <label for="filter">Filter Todos</label>
   <input

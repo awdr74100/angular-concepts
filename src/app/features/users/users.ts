@@ -17,6 +17,7 @@ export class Users {
   usersQuery = injectQuery(() => ({
     queryKey: ['users'],
     queryFn: () => this.userService.getUsers(),
+    staleTime: Infinity,
   }));
 
   userQuery = injectQuery(() => ({
